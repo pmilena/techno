@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
             <div v-for="produto in produtos" class="produto">
                 <img :src="produto.img" :alt="produto.nome" class="produto_img">
                 <div class="produto_info">
-                    <span class="produto_preco">{{produto.preco}}</span>
+                    <span class="produto_preco">{{produto.preco | moeda}}</span>
                     <h2 class="produto_nome">{{produto.nome}}</h2>
                 </div>
             </div>
