@@ -11,8 +11,29 @@
 
 <body>
     <div id="app">
+        <section class="modal" v-if="item.nome">
+            <div class="modal_container">
+                <div class="modal_img"> <img :src="item.img" :alt="item.nome"></div>
+                <div class="modal_dados">
+                    <span class="modal_preco">{{item.preco}}</span>
+                    <h2 class="modal_titulo">{{item.nome}}</h2>
+                    <p>{{item.descricao}}</p>
+                    <button class="modal_btn">Adicionar Item</button>
+                </div>
+                <div class="avaliacoes">
+                    <h2 class="avaliacoes_subtitulo">Avaliações</h2>
+                    <ul>
+                        <li v-for="review in item.reviews">
+                            <p>{{review.descricao}}</p>
+                            <p>{{review.nome}} | {{review.estrelas}} estrelas</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
         <section class="produtos">
-            <div v-for="produto in produtos" class="produto">
+            <div v-for="produto in produtos" @click="fetchItem(produto.id)" class="produto">
                 <img :src="produto.img" :alt="produto.nome" class="produto_img">
                 <div class="produto_info">
                     <span class="produto_preco">{{produto.preco | moeda}}</span>

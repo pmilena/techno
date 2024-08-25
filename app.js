@@ -2,6 +2,7 @@ new Vue({
   el: "#app",
   data: {
     produtos: [],
+    item: {},
   },
   filters: {
     moeda(valor) {
@@ -17,6 +18,13 @@ new Vue({
         .then((r) => r.json())
         .then((r) => {
           this.produtos = r;
+        });
+    },
+    fetchItem(id) {
+      fetch(`./api/produtos/${id}/dados.json`)
+        .then((r) => r.json())
+        .then((r) => {
+          this.item = r;
         });
     },
   },

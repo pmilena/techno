@@ -27,6 +27,7 @@ body {
 .produtos {
   max-width: 900px;
   margin: 100px auto 0;
+  cursor: pointer;
 }
 
 .produto {
@@ -46,4 +47,7 @@ body {
 }
 .produto_preco {
   color: rgba(0, 0, 0, 0.5);
+}
+.modal_container {
+  background: #fff;
 }
