@@ -11,6 +11,10 @@
 
 <body>
     <div id="app">
+        <header class="header">
+            <img class="logo" src="./assets/techno.svg" alt="Techno">
+            <span class="carrinho_menu">{{carrinhoTotal}} |</span>
+        </header>
         <section class="modal" v-if="item.nome" @click="fecharModal">
             <div class="modal_container">
                 <button @click="item=false" class="modal_fechar">X</button>

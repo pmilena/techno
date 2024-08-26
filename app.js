@@ -3,6 +3,7 @@ new Vue({
   data: {
     produtos: [],
     item: {},
+    carrinhoTotal: 0
   },
   filters: {
     moeda(valor) {
