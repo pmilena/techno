@@ -3,7 +3,8 @@ new Vue({
   data: {
     produtos: [],
     item: {},
-    carrinhoTotal: 0
+    carrinhoTotal: 0,
+    itensCarrinho: []
   },
   filters: {
     moeda(valor) {
@@ -38,6 +39,12 @@ new Vue({
     fecharModal({ target, currentTarget }) {
       if (target === currentTarget) this.item = false;
     },
+    removerItemEstoque() {
+      this.item.estoque--;
+      const { id, nome, preco } = this.item;
+      this.itensCarrinho.push({ id, nome, preco })
+    },
+
   },
   created() {
     this.fetchProdutos();

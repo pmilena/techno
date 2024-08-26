@@ -160,6 +160,10 @@ body {
   padding: 10px 25px;
 }
 
+.btn_esgotado {
+  background: #808080;
+}
+
 .modal_btn:active {
   background: #808080;
 }
