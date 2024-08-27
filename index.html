@@ -13,7 +13,7 @@
     <div id="app">
         <header class="header">
             <img class="logo" src="./assets/techno.svg" alt="Techno">
-            <span class="carrinho_menu">{{carrinhoTotal}} | {{itensCarrinho.length}}</span>
+            <span class="carrinho_menu">{{carrinhoTotal | moeda}} | {{itensCarrinho.length}}</span>
             <ul>
                 <li v-for="(dado,index) in itensCarrinho" >
                     <p>{{dado.nome}}</p>
