@@ -14,7 +14,12 @@
         <header class="header">
             <img class="logo" src="./assets/techno.svg" alt="Techno">
             <span class="carrinho_menu">{{carrinhoTotal}} | {{itensCarrinho.length}}</span>
-            <div>{{itensCarrinho}}</div>
+            <ul>
+                <li v-for="(dado,index) in itensCarrinho" >
+                    <p>{{dado.nome}}</p>
+                    <button @click="removerItem(index)">x</button>
+                </li>
+            </ul>
         </header>
         
         <section class="produtos">

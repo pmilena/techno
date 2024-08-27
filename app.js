@@ -44,6 +44,9 @@ new Vue({
       const { id, nome, preco } = this.item;
       this.itensCarrinho.push({ id, nome, preco })
     },
+    removerItem(index) {
+      this.itensCarrinho.splice(index, 1)
+    },
 
   },
   created() {
