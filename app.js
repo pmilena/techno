@@ -57,8 +57,34 @@ new Vue({
     removerItem(index) {
       this.itensCarrinho.splice(index, 1);
     },
+    checarLocalStorage() {
+      if (window.localStorage.itensCarrinho) {
+        try {
+          const itens = JSON.parse(window.localStorage.itensCarrinho);
+          if (Array.isArray(itens)) {
+            this.itensCarrinho = itens;
+          } else {
+            this.itensCarrinho = [];
+          }
+        } catch (e) {
+          console.error("Erro ao carregar itens do LocalStorage:", e);
+          this.itensCarrinho = [];
+        }
+      } else {
+        this.itensCarrinho = [];
+      }
+    }
+  },
+  watch: {
+    itensCarrinho: {
+      handler(novoValor) {
+        window.localStorage.itensCarrinho = JSON.stringify(novoValor);
+      },
+      deep: true
+    }
   },
   created() {
     this.fetchProdutos();
+    this.checarLocalStorage();
   },
 });
