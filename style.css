@@ -186,3 +186,24 @@ body {
 .avaliacao_usuario {
   font-weight: bold;
 }
+
+.alerta {
+  position: absolute;
+  top: 40px;
+  border: 1px solid #000;
+  background-color: #fff;
+  left: 50%;
+  padding: 0 10px;
+  z-index: 10;
+  display: none;
+}
+
+.alerta.ativo {
+  display: block;
+}
+
+.mensagem_alerta {
+  color: #000;
+  text-align: center;
+  font-weight: 600;
+}
