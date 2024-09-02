@@ -84,6 +84,10 @@ new Vue({
         this.alertaAtivo = false;
       }, 1500);
     },
+    router() {
+      if (hash)
+        this.fetchItem(hash.replace("#", ""))
+    }
   },
   watch: {
     itensCarrinho: {
@@ -91,6 +95,11 @@ new Vue({
         window.localStorage.itensCarrinho = JSON.stringify(novoValor);
       },
       deep: true
+    },
+    item() {
+      document.title = this.item.nome || "Techno";
+      const hash = this.item.id || "";
+      history.pushState(null, null, `#${hash}`);
     }
   },
   created() {
