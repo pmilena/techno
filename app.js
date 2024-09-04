@@ -5,7 +5,8 @@ new Vue({
     item: {},
     itensCarrinho: [],
     mensagemAlerta: "Item adicionado ao carrinho",
-    alertaAtivo: false
+    alertaAtivo: false,
+    carrinhoAtivo: true,
   },
   filters: {
     moeda(valor) {
@@ -51,6 +52,9 @@ new Vue({
     fecharModal({ target, currentTarget }) {
       if (target === currentTarget) this.item = false;
     },
+    clickForaCarrinho({ target, currentTarget }) {
+      if (target === currentTarget) this.item = false;
+    },
     removerItemEstoque() {
       this.item.estoque--;
       const { id, nome, preco } = this.item;
@@ -85,8 +89,10 @@ new Vue({
       }, 1500);
     },
     router() {
-      if (hash)
-        this.fetchItem(hash.replace("#", ""))
+      const hash = window.location.hash;
+      if (hash) {
+        this.fetchItem(hash.replace("#", ""));
+      }
     }
   },
   watch: {
@@ -105,5 +111,6 @@ new Vue({
   created() {
     this.fetchProdutos();
     this.checarLocalStorage();
+    this.router();
   },
 });
